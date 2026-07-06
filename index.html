@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HealthMe">
+<meta name="theme-color" content="#FCF7EF">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>HealthMe™ — Prototype</title>
+<style>
+/* ── Palette « Vitalité » ─────────────────────── */
+:root{
+  --mand:#F2913F; --mand-fonce:#DE7E2C;
+  --soleil:#FBC97D; --soleil-pale:#FDEBD2;
+  --corail:#EE6A4D;
+  --sarc:#155E63; --sarc-pale:#E3EEEF;
+  --creme:#FCF7EF; --blanc:#FFFFFF;
+  --encre:#2A211A; --gris:#6B625A;
+  --ombre:0 2px 10px rgba(42,33,26,.08);
+  --rayon:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;height:100%;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--creme); color:var(--encre);
+  font-size:1.0625rem; line-height:1.55;
+  /* Coquille d'app iOS : pas de défilement de page, pas d'effet élastique Safari */
+  position:fixed; inset:0; width:100%; overflow:hidden; overscroll-behavior:none;
+  -webkit-tap-highlight-color:transparent; -webkit-touch-callout:none;
+  -webkit-user-select:none; user-select:none; touch-action:manipulation;
+}
+input,textarea{-webkit-user-select:text;user-select:text}
+.app{max-width:520px;margin:0 auto;height:100vh;height:100dvh;display:flex;flex-direction:column;background:var(--creme)}
+
+/* ── En-tête ──────────────────────────────────── */
+header{
+  display:flex;align-items:center;gap:.65rem;flex:none;
+  /* Safe area haute : encoche / Dynamic Island de l'iPhone */
+  padding:calc(.85rem + env(safe-area-inset-top)) 1.1rem .85rem;
+  background:var(--creme);z-index:20;border-bottom:1px solid #F0E6D8;
+}
+header .brand{font-weight:800;font-size:1.35rem;color:var(--encre);letter-spacing:-.01em}
+header .brand .tm{font-size:.6em;vertical-align:super}
+header .points{
+  margin-left:auto;background:var(--soleil-pale);color:var(--sarc);
+  font-weight:700;font-size:.95rem;padding:.3rem .8rem;border-radius:999px;
+  border:1px solid var(--soleil);
+}
+
+/* ── Contenu ──────────────────────────────────── */
+main{
+  flex:1;padding:1.1rem 1.1rem 1.5rem;
+  /* Seule zone défilante, avec inertie iOS */
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain;
+}
+.screen{display:none}
+.screen.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+h1{font-size:1.5rem;line-height:1.25;color:var(--encre);margin-bottom:.5rem}
+h2{font-size:1.2rem;color:var(--sarc);margin:1.4rem 0 .6rem}
+h3{font-size:1.05rem;color:var(--encre);margin-bottom:.3rem}
+p{margin-bottom:.7rem}
+.muted{color:var(--gris);font-size:.95rem}
+.small{font-size:.9rem}
+a{color:var(--sarc);font-weight:600}
+
+.card{
+  background:var(--blanc);border-radius:var(--rayon);
+  padding:1.1rem 1.15rem;margin-bottom:.9rem;box-shadow:var(--ombre);
+}
+.card.sable{background:var(--soleil-pale);box-shadow:none;border:1px solid var(--soleil)}
+.card.sarcelle{background:var(--sarc);color:var(--blanc)}
+.card.sarcelle h3,.card.sarcelle .muted{color:rgba(255,255,255,.85)}
+
+/* ── Boutons ──────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  border:none;border-radius:999px;cursor:pointer;
+  font-size:1.05rem;font-weight:700;font-family:inherit;
+  padding:.8rem 1.6rem;transition:transform .08s ease,background .15s;
+}
+.btn:active{transform:scale(.97)}
+.btn-primaire{background:var(--mand);color:#fff}
+.btn-primaire:hover{background:var(--mand-fonce)}
+.btn-secondaire{background:var(--sarc);color:#fff}
+.btn-contour{background:transparent;color:var(--sarc);border:2px solid var(--sarc)}
+.btn-bloc{width:100%;margin-top:.5rem}
+.btn-petit{font-size:.92rem;padding:.45rem 1rem}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* ── Formulaires ──────────────────────────────── */
+label{display:block;font-weight:700;font-size:.98rem;margin:.9rem 0 .35rem;color:var(--sarc)}
+input[type=text],input[type=number],select{
+  width:100%;padding:.7rem .9rem;font-size:1.05rem;font-family:inherit;
+  border:2px solid #E8DCC9;border-radius:12px;background:var(--blanc);color:var(--encre);
+}
+input:focus,select:focus{outline:3px solid var(--soleil);border-color:var(--mand)}
+.seg{display:flex;flex-wrap:wrap;gap:.5rem}
+.seg button{
+  flex:1 1 auto;min-width:90px;padding:.6rem .5rem;border-radius:12px;cursor:pointer;
+  border:2px solid #E8DCC9;background:var(--blanc);color:var(--encre);
+  font-size:.98rem;font-weight:600;font-family:inherit;
+}
+.seg button.on{background:var(--sarc);border-color:var(--sarc);color:#fff}
+.check{display:flex;gap:.6rem;align-items:flex-start;margin:.6rem 0;font-size:.98rem}
+.check input{width:1.3rem;height:1.3rem;margin-top:.2rem;accent-color:var(--mand);flex:none}
+
+/* ── Étapes (onboarding) ──────────────────────── */
+.dots{display:flex;gap:.4rem;justify-content:center;margin:.2rem 0 1.2rem}
+.dots span{width:.6rem;height:.6rem;border-radius:50%;background:#E8DCC9}
+.dots span.on{background:var(--mand);width:1.6rem;border-radius:999px}
+
+/* ── Barres de progression ────────────────────── */
+.jauge{margin:.7rem 0}
+.jauge .tete{display:flex;justify-content:space-between;font-size:.95rem;font-weight:600;margin-bottom:.25rem}
+.jauge .tete .val{color:var(--gris);font-weight:600}
+.barre{height:.7rem;background:#F0E6D8;border-radius:999px;overflow:hidden}
+.barre i{display:block;height:100%;background:var(--mand);border-radius:999px;transition:width .4s ease}
+.barre i.plein{background:var(--sarc)}
+
+/* ── Puces / badges ───────────────────────────── */
+.chip{
+  display:inline-block;padding:.2rem .7rem;border-radius:999px;
+  font-size:.85rem;font-weight:700;
+}
+.chip-attention{background:var(--soleil-pale);color:#8a5a15;border:1px solid var(--soleil)}
+.chip-prio{background:#FDEAE5;color:#B04124;border:1px solid var(--corail)}
+.chip-ok{background:var(--sarc-pale);color:var(--sarc);border:1px solid var(--sarc)}
+.equiv{
+  display:inline-block;background:var(--sarc-pale);color:var(--sarc);
+  border-radius:8px;padding:.1rem .5rem;font-size:.88rem;font-weight:600;
+}
+
+/* ── Banque de repas ──────────────────────────── */
+.repas{
+  display:flex;gap:.8rem;align-items:center;background:var(--blanc);
+  border-radius:14px;padding:.75rem .9rem;margin-bottom:.55rem;
+  box-shadow:var(--ombre);cursor:pointer;border:2px solid transparent;
+}
+.repas:hover{border-color:var(--soleil)}
+.repas:active{transform:scale(.98);border-color:var(--soleil)}
+.seg button:active,nav button:active{opacity:.6}
+.repas .ico{font-size:1.7rem;flex:none}
+.repas .inf{flex:1;min-width:0}
+.repas .inf b{display:block;font-size:1rem}
+.repas .inf span{font-size:.85rem;color:var(--gris)}
+.repas .kc{font-weight:700;color:var(--sarc);font-size:.92rem;flex:none}
+
+/* ── Alertes ──────────────────────────────────── */
+.alerte{border-left:5px solid var(--soleil);background:var(--blanc);border-radius:12px;padding:.9rem 1rem;margin-bottom:.8rem;box-shadow:var(--ombre)}
+.alerte.cible{border-left-color:var(--corail)}
+.alerte .titre{display:flex;align-items:center;gap:.5rem;font-weight:800;margin-bottom:.3rem}
+.alerte p{font-size:.95rem;margin-bottom:.4rem}
+.reco{background:var(--soleil-pale);border-radius:10px;padding:.6rem .8rem;font-size:.93rem;margin-top:.4rem}
+.reco b{color:var(--sarc)}
+
+/* ── Navigation basse ─────────────────────────── */
+nav{
+  display:none;flex:none;z-index:20;
+  /* Tab bar translucide façon iOS */
+  background:rgba(255,255,255,.9);
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  border-top:1px solid #F0E6D8;
+  padding:.35rem .4rem calc(.35rem + env(safe-area-inset-bottom));
+}
+nav.visible{display:flex}
+nav button{
+  flex:1;background:none;border:none;cursor:pointer;font-family:inherit;
+  display:flex;flex-direction:column;align-items:center;gap:.1rem;
+  font-size:.72rem;font-weight:700;color:var(--gris);padding:.35rem 0;border-radius:10px;
+}
+nav button .i{font-size:1.35rem;line-height:1}
+nav button.on{color:var(--mand)}
+nav button.on .i{transform:scale(1.1)}
+
+/* ── Avertissement permanent ──────────────────── */
+.avert{
+  flex:none;background:var(--sarc);color:rgba(255,255,255,.92);
+  font-size:.8rem;text-align:center;line-height:1.4;
+  /* Safe area basse (barre home) quand la tab bar est cachée (onboarding) */
+  padding:.45rem .8rem calc(.45rem + env(safe-area-inset-bottom));
+}
+.app:has(nav.visible) .avert{padding-bottom:.45rem}
+
+/* ── Modale & toast ───────────────────────────── */
+.voile{position:fixed;inset:0;background:rgba(42,33,26,.45);display:none;align-items:flex-end;justify-content:center;z-index:50}
+.voile.on{display:flex}
+.modale{
+  background:var(--creme);border-radius:22px 22px 0 0;
+  padding:1.3rem 1.2rem calc(1.6rem + env(safe-area-inset-bottom));
+  width:100%;max-width:520px;max-height:85vh;overflow:auto;-webkit-overflow-scrolling:touch;
+}
+/* Feuille qui glisse depuis le bas, courbe « spring » iOS + poignée */
+.voile.on .modale{animation:sheet .34s cubic-bezier(.32,.72,0,1)}
+@keyframes sheet{from{transform:translateY(100%)}to{transform:none}}
+.modale::before{content:'';display:block;width:36px;height:5px;border-radius:3px;background:#D8CCBA;margin:0 auto .9rem}
+.toast{
+  position:fixed;left:50%;transform:translateX(-50%);
+  bottom:calc(5.5rem + env(safe-area-inset-bottom));z-index:60;
+  background:var(--sarc);color:#fff;padding:.8rem 1.3rem;border-radius:14px;
+  font-weight:700;font-size:.98rem;box-shadow:0 6px 20px rgba(0,0,0,.25);
+  opacity:0;pointer-events:none;transition:opacity .3s;max-width:90%;text-align:center;
+}
+.toast.on{opacity:1}
+.toast.bravo{background:var(--mand)}
+
+/* ── Divers ───────────────────────────────────── */
+.ligne{display:flex;gap:.8rem}
+.ligne>*{flex:1}
+.centre{text-align:center}
+.logo-hero{margin:1.6rem auto 1rem;display:block}
+.tuiles{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.6rem 0}
+.tuile{background:var(--blanc);border-radius:14px;padding:.85rem;box-shadow:var(--ombre);text-align:center}
+.tuile .gros{font-size:1.45rem;font-weight:800;color:var(--sarc)}
+.tuile .lab{font-size:.83rem;color:var(--gris);font-weight:600}
+.sep{border:none;border-top:1px solid #F0E6D8;margin:1.1rem 0}
+.assiette{display:flex;border-radius:12px;overflow:hidden;height:2.6rem;margin:.5rem 0;font-size:.8rem;font-weight:700;color:#fff;text-align:center}
+.assiette .a1{background:var(--sarc);width:50%;display:flex;align-items:center;justify-content:center}
+.assiette .a2{background:var(--mand);width:25%;display:flex;align-items:center;justify-content:center}
+.assiette .a3{background:var(--corail);width:25%;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ═══ EN-TÊTE ═══ -->
+<header>
+  <svg id="logoHeader" width="38" height="38" viewBox="-32 -32 64 64" aria-label="Logo HealthMe" role="img"></svg>
+  <div class="brand">HealthMe<span class="tm">™</span></div>
+  <div class="points" id="pointsBadge" hidden>⭐ <span id="pointsVal">0</span> pts</div>
+</header>
+
+<main id="main"><!--ECRANS--></main>
+
+<div class="avert">HealthMe est un outil de prévention et de bien-être, informationnel. Il ne remplace pas un professionnel de la santé.</div>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav id="nav">
+  <button data-ecran="tableau" class="on"><span class="i">☀️</span>Tableau</button>
+  <button data-ecran="journal"><span class="i">🍽️</span>Journal</button>
+  <button data-ecran="activite"><span class="i">🏃</span>Activité</button>
+  <button data-ecran="alertes"><span class="i">🔔</span>Alertes</button>
+  <button data-ecran="profil"><span class="i">👤</span>Profil</button>
+</nav>
+</div>
+
+<!-- ═══ MODALE ═══ -->
+<div class="voile" id="voile" role="dialog" aria-modal="true">
+  <div class="modale" id="modale"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════════════
+   HealthMe™ — Prototype de test utilisateur
+   Fichier autonome. Données simulées.
+   Identité visuelle : option C « La Synthèse ».
+   ═══════════════════════════════════════════════ */
+// ── Logo option C « La Synthèse » : personnage de B + 8 rayons de A ──
+function logoSvg(fig, rayons){
+  let r='';
+  for(let k=0;k<8;k++){
+    const a=k*Math.PI/4 + Math.PI/8;
+    const x1=Math.cos(a)*21, y1=Math.sin(a)*21, x2=Math.cos(a)*27, y2=Math.sin(a)*27;
+    r+=`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${rayons}" stroke-width="3.4" stroke-linecap="round"/>`;
+  }
+  return r
+    +`<circle cx="0" cy="-10.5" r="5" fill="${fig}"/>`
+    +`<path d="M -8.5 -3 L 8.5 13 M 8.5 -3 L -8.5 13" stroke="${fig}" stroke-width="5" stroke-linecap="round" fill="none"/>`;
+}
+document.getElementById('logoHeader').innerHTML = logoSvg('#155E63','#F2913F');
+
+// ── État global ──────────────────────────────────
+const CLE='healthme_proto_v1';
+let S = { etape:0, profil:null, besoins:null, autoEval:{}, repas:[], eau:0, activites:[], points:0, alertesActives:[], consentements:{} };
+function sauver(){ try{ localStorage.setItem(CLE, JSON.stringify(S)); }catch(e){} }
+function charger(){ try{ const d=localStorage.getItem(CLE); if(d) S=Object.assign(S,JSON.parse(d)); }catch(e){} }
+function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// ═══ CALCULS DÉTERMINISTES (repris de nutriref-standalone-v2.html — ne jamais confier à un LLM) ═══
+const PAL={sedentaire:1.2,leger:1.375,modere:1.55,actif:1.725,tres_actif:1.9};
+const PA_PED={homme:{sedentaire:1.00,leger:1.13,modere:1.26,actif:1.42,tres_actif:1.42},
+              femme:{sedentaire:1.00,leger:1.16,modere:1.31,actif:1.56,tres_actif:1.56}};
+function eerChild(sex,age,w,hCm,act){
+  const hM=hCm/100, dep=age<=8?20:25, pa=PA_PED[sex][act];
+  return sex==='homme' ? 88.5-61.9*age+pa*(26.7*w+903*hM)+dep : 135.3-30.8*age+pa*(10.0*w+934*hM)+dep;
+}
+function defaultMeasures(sex,age){
+  const T={homme:[{m:13,w:45,h:156},{m:18,w:64,h:175},{m:30,w:80,h:178},{m:50,w:82,h:177},{m:70,w:79,h:175},{m:100,w:74,h:172}],
+           femme:[{m:13,w:44,h:154},{m:18,w:55,h:163},{m:30,w:65,h:165},{m:50,w:67,h:164},{m:70,w:66,h:162},{m:100,w:62,h:159}]};
+  const r=T[sex].find(r=>age<=r.m)||T[sex][T[sex].length-1];
+  return {weight:r.w,height:r.h};
+}
+function bmrCalc(sex,age,w,h){ return sex==='homme'?10*w+6.25*h-5*age+5:10*w+6.25*h-5*age-161; }
+function pick(t,sex,age){ const r=t.find(r=>age<=r.m)||t[t.length-1]; return sex==='homme'?r.h:r.f; }
+function calcBesoins(age,sex,act,w,h,goal){
+  const m={weight:w||defaultMeasures(sex,age).weight, height:h||defaultMeasures(sex,age).height};
+  const ped=age<19;
+  let maintenance;
+  if(age>=19) maintenance=Math.round(bmrCalc(sex,age,m.weight,m.height)*PAL[act]);
+  else maintenance=Math.round(eerChild(sex,age,m.weight,m.height,act));
+  let cal=maintenance, goalApplied=ped?'maintien':goal;
+  if(!ped){ if(goal==='perte')cal=Math.round(maintenance*.85); if(goal==='gain')cal=Math.round(maintenance*1.10); }
+  cal=Math.max(cal, age<=13?1400:1200);
+  const pF={sedentaire:1.1,leger:1.3,modere:1.5,actif:1.7,tres_actif:2.0}[act];
+  const protG=Math.round(m.weight*pF);
+  const fibres=pick([{m:13,h:31,f:26},{m:18,h:38,f:26},{m:50,h:38,f:25},{m:100,h:30,f:21}],sex,age);
+  const eauMl=pick([{m:13,h:2400,f:2100},{m:18,h:3300,f:2300},{m:50,h:3700,f:2700},{m:100,h:3700,f:2700}],sex,age);
+  const fer=pick([{m:13,h:8,f:8},{m:18,h:11,f:15},{m:50,h:8,f:18},{m:100,h:8,f:8}],sex,age);
+  const calcium=pick([{m:18,h:1300,f:1300},{m:50,h:1000,f:1000},{m:70,h:1000,f:1200},{m:100,h:1200,f:1200}],sex,age);
+  return {calories:cal,protG,fibres,eauMl,fer,calcium,fl:400,goalApplied,ped,mesures:m};
+}
+function groupeAge(age){ return age<=17?'8-17':age<=34?'18-34':age<=64?'35-64':'65+'; }
+
+// ═══ BASELINE OFFICIELLE PAR GROUPE D'ÂGE (REFERENCE_BASELINE_PAR_AGE.md — contenus figés) ═══
+const BASELINE={
+ '8-17':{titre:'8 à 17 ans',
+  activite:'Au moins <b>60 minutes par jour</b> d\'activité physique d\'intensité moyenne à élevée, avec des activités vigoureuses et de renforcement des muscles et des os <b>au moins 3 jours/semaine</b>.',
+  actCible:{type:'jour',min:60},
+  sommeil:'9-11 h/nuit (jusqu\'à 13 ans) · 8-10 h/nuit (14-17 ans)',
+  benefice:'Soutenir une journée d\'environ <b>6 h de travail intellectuel</b> (l\'école) <b>et au moins 60 min d\'activité</b>, en favorisant la concentration, la croissance et la santé osseuse. C\'est une capacité à bâtir — jamais une cible de poids.',
+  prot:(sex,age)=> age<=13?'34 g/jour':(sex==='homme'?'52 g/jour':'46 g/jour'),
+  fibres:'environ 26 à 38 g/jour selon l\'âge'},
+ '18-34':{titre:'18 à 34 ans',
+  activite:'Au moins <b>150 minutes par semaine</b> d\'activité aérobie d\'intensité moyenne à élevée, plus du <b>renforcement musculaire au moins 2 jours/semaine</b>. Limiter la sédentarité (≤ 8 h/jour).',
+  actCible:{type:'semaine',min:150},
+  sommeil:'7-9 h/nuit',
+  benefice:'Soutenir une vie active et un plein rendement physique et mental, au travail comme dans les loisirs — et bâtir un capital santé tôt.',
+  prot:(sex)=> sex==='homme'?'56 g/jour':'46 g/jour',
+  fibres:'38 g/jour (hommes) · 25 g/jour (femmes)'},
+ '35-64':{titre:'35 à 64 ans',
+  activite:'Au moins <b>150 minutes par semaine</b> d\'activité d\'intensité moyenne à élevée, plus du <b>renforcement musculaire au moins 2 jours/semaine</b>. Limiter la sédentarité (≤ 8 h/jour).',
+  actCible:{type:'semaine',min:150},
+  sommeil:'7-9 h/nuit',
+  benefice:'Soutenir une journée d\'environ <b>8 h de travail intellectuel</b> avec une énergie stable, préserver la masse musculaire et prévenir les maladies chroniques.',
+  prot:(sex)=> sex==='homme'?'56 g/jour':'46 g/jour',
+  fibres:'38 g (H) / 25 g (F) avant 51 ans · 30 g (H) / 21 g (F) ensuite'},
+ '65+':{titre:'65 ans et plus',
+  activite:'Au moins <b>150 minutes par semaine</b> d\'activité d\'intensité moyenne à élevée, du <b>renforcement musculaire au moins 2 jours/semaine</b> et des <b>activités qui défient l\'équilibre</b>.',
+  actCible:{type:'semaine',min:150},
+  sommeil:'7-8 h/nuit',
+  benefice:'Maintenir l\'<b>autonomie</b>, l\'équilibre et la force pour les activités du quotidien — marcher, monter un escalier, porter l\'épicerie — et préserver la vitalité.',
+  prot:(sex)=> sex==='homme'?'56 g/jour':'46 g/jour',
+  fibres:'30 g/jour (hommes) · 21 g/jour (femmes)'}
+};
+
+// ═══ CARENCES PRIORITAIRES PAR GROUPE (RISQUES_PRIORITAIRES_PAR_AGE.md — contenus figés) ═══
+const CARENCES={
+ '8-17':[
+  {n:'Fer',ico:'🩸',msg:'Les adolescentes constituent un groupe plus vulnérable en raison de la croissance rapide et des pertes menstruelles.'},
+  {n:'Calcium',ico:'🦴',msg:'L\'adolescence est une période déterminante pour l\'acquisition du capital osseux.'},
+  {n:'Vitamine D',ico:'☀️',msg:'Les apports insuffisants sont fréquents et préoccupants pour la santé osseuse.'}],
+ '18-34':[
+  {n:'Fer',ico:'🩸',msg:'Les femmes en âge de procréer représentent un groupe prioritaire de prévention.'},
+  {n:'Vitamine D',ico:'☀️',msg:'Les apports insuffisants demeurent fréquents chez les adultes jeunes.'},
+  {n:'Folate (B9)',ico:'🧬',msg:'La couverture adéquate des besoins est particulièrement importante avant et pendant la grossesse.'}],
+ '35-64':[
+  {n:'Vitamine D',ico:'☀️',msg:'Le maintien d\'apports suffisants est important pour la prévention des fractures.'},
+  {n:'Calcium',ico:'🦴',msg:'Les besoins demeurent élevés, notamment chez les femmes en périménopause et en ménopause.'},
+  {n:'Fer',ico:'🩸',msg:'Le risque persiste chez les femmes avant la ménopause et chez certaines personnes à apport alimentaire limité.'}],
+ '65+':[
+  {n:'Protéines',ico:'💪',msg:'Les apports insuffisants en protéines compromettent le maintien de l\'autonomie fonctionnelle.'},
+  {n:'Vitamine B12',ico:'🧠',msg:'La diminution de l\'absorption augmente le risque de carence chez les aînés.'},
+  {n:'Vitamine D',ico:'☀️',msg:'La prévention de l\'insuffisance en vitamine D constitue un enjeu majeur de santé osseuse.'}]
+};
+
+// ═══ BANQUE DE REPAS (simulée — valeurs approximatives type CNF, prototype seulement) ═══
+// fl = grammes de fruits & légumes ; fer mg ; ca = calcium mg
+const BANQUE=[
+ {id:1, n:'Gruau et petits fruits', ico:'🥣', portion:'1 bol (250 ml) + ½ tasse de bleuets', kcal:280, prot:8,  fib:5, fer:2.1, ca:150, fl:80},
+ {id:2, n:'Yogourt grec et fruits', ico:'🍓', portion:'¾ tasse (175 g) + 1 fruit moyen', kcal:220, prot:17, fib:3, fer:0.3, ca:200, fl:80},
+ {id:3, n:'2 œufs et rôties de grains entiers', ico:'🍳', portion:'2 œufs + 2 tranches de pain', kcal:340, prot:18, fib:5, fer:2.8, ca:80, fl:0},
+ {id:4, n:'Sandwich jambon-fromage', ico:'🥪', portion:'2 tranches de pain + garniture (paume)', kcal:380, prot:22, fib:4, fer:2.2, ca:250, fl:20},
+ {id:5, n:'Soupe aux pois', ico:'🍲', portion:'1 bol (250 ml)', kcal:190, prot:10, fib:5, fer:1.9, ca:40, fl:60},
+ {id:6, n:'Salade de lentilles et légumes', ico:'🥗', portion:'1 assiette (250 ml de lentilles + légumes)', kcal:320, prot:14, fib:9, fer:4.5, ca:60, fl:160},
+ {id:7, n:'Pâté chinois', ico:'🥘', portion:'1 assiette (⅓ bœuf, ⅓ maïs, ⅓ patates)', kcal:450, prot:24, fib:5, fer:3.2, ca:60, fl:90},
+ {id:8, n:'Spaghetti sauce à la viande', ico:'🍝', portion:'1 assiette (250 ml de pâtes cuites)', kcal:520, prot:25, fib:6, fer:3.5, ca:80, fl:100},
+ {id:9, n:'Poulet rôti, patates et légumes', ico:'🍗', portion:'poulet = paume (~75 g) + ⅓ d\'assiette de patates + ⅓ de légumes', kcal:430, prot:30, fib:5, fer:1.8, ca:50, fl:120},
+ {id:10,n:'Saumon, riz et brocoli', ico:'🐟', portion:'saumon = paume (~75 g) + ½ tasse de riz + ½ tasse de brocoli', kcal:420, prot:28, fib:4, fer:1.0, ca:60, fl:80},
+ {id:11,n:'Tourtière', ico:'🥧', portion:'1 pointe (⅙ de la tourtière)', kcal:480, prot:20, fib:3, fer:3.0, ca:40, fl:0},
+ {id:12,n:'Chili con carne', ico:'🌶️', portion:'1 bol (250 ml)', kcal:380, prot:24, fib:9, fer:4.2, ca:80, fl:120},
+ {id:13,n:'Crudités et houmous', ico:'🥕', portion:'1 tasse de crudités + ¼ tasse de houmous', kcal:180, prot:6, fib:6, fer:1.6, ca:60, fl:125},
+ {id:14,n:'Smoothie fruits et lait', ico:'🥤', portion:'1 grand verre (300 ml)', kcal:210, prot:7, fib:4, fer:0.8, ca:220, fl:160},
+ {id:15,n:'Verre de lait', ico:'🥛', portion:'1 grand verre (250 ml)', kcal:130, prot:9, fib:0, fer:0.1, ca:300, fl:0},
+ {id:16,n:'Poutine', ico:'🍟', portion:'format régulier', kcal:740, prot:20, fib:4, fer:1.5, ca:250, fl:0}
+];
+
+// ═══ RECOS CHIFFRÉES (teneurs approximatives type CNF ; portion = écart ÷ teneur) ═══
+const RECO_ALIMENTS={
+ fer:[{a:'lentilles cuites',q:'250 ml (1 tasse)',t:6.6,u:'mg'},{a:'bœuf',q:'100 g (paume et demie)',t:2.5,u:'mg'},{a:'tofu ferme',q:'150 g (¾ tasse)',t:4.0,u:'mg'}],
+ calcium:[{a:'lait',q:'250 ml (1 grand verre)',t:300,u:'mg'},{a:'yogourt',q:'175 g (¾ tasse)',t:220,u:'mg'},{a:'fromage',q:'50 g (2 doigts)',t:350,u:'mg'}],
+ prot:[{a:'poulet',q:'75 g (1 paume)',t:22,u:'g'},{a:'légumineuses',q:'175 ml (¾ tasse)',t:12,u:'g'},{a:'2 œufs',q:'',t:12,u:'g'}],
+ fib:[{a:'framboises',q:'125 ml (½ tasse)',t:4,u:'g'},{a:'gruau cuit',q:'175 ml (¾ tasse)',t:3,u:'g'},{a:'pain de grains entiers',q:'1 tranche',t:2.5,u:'g'}],
+ fl:[{a:'1 fruit moyen ou ½ tasse de légumes',q:'« une poignée »',t:80,u:'g'}]
+};
+
+const SOURCES=`<p class="small muted" style="margin-top:.8rem">Pour en savoir plus :
+<a href="https://guide-alimentaire.canada.ca/fr/" target="_blank" rel="noopener">Guide alimentaire canadien</a> ·
+<a href="https://directivesscpe.ca/" target="_blank" rel="noopener">Directives de mouvement 24 h (SCPE)</a> ·
+<a href="https://www.quebec.ca/sante" target="_blank" rel="noopener">Québec.ca/santé</a></p>`;
+// ═══ OUTILS UI ═══════════════════════════════════
+const $main=document.getElementById('main'), $nav=document.getElementById('nav');
+// Comportement app iOS : bloquer le zoom par pincement (le double-tap est déjà
+// neutralisé par touch-action:manipulation, sans avaler les taps rapides)
+document.addEventListener('gesturestart',e=>e.preventDefault());
+// Safari iOS hors plein écran? (proposer l'ajout à l'écran d'accueil)
+const IOS_SAFARI = /iPhone|iPad|iPod/.test(navigator.userAgent) && navigator.standalone===false;
+function toast(msg,bravo){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='toast on'+(bravo?' bravo':'');
+  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('on'),2600);
+}
+function modale(html){ document.getElementById('modale').innerHTML=html; document.getElementById('voile').classList.add('on'); }
+function fermerModale(){ document.getElementById('voile').classList.remove('on'); }
+document.getElementById('voile').addEventListener('click',e=>{ if(e.target.id==='voile') fermerModale(); });
+function majPoints(){ document.getElementById('pointsVal').textContent=S.points; }
+function dots(n,total){ let h='<div class="dots">'; for(let i=0;i<total;i++)h+=`<span class="${i===n?'on':''}"></span>`; return h+'</div>'; }
+
+// ═══ TOTAUX DU JOUR ══════════════════════════════
+function totaux(){
+  const t={kcal:0,prot:0,fib:0,fer:0,ca:0,fl:0};
+  S.repas.forEach(id=>{ const r=BANQUE.find(x=>x.id===id); if(r){t.kcal+=r.kcal;t.prot+=r.prot;t.fib+=r.fib;t.fer+=r.fer;t.ca+=r.ca;t.fl+=r.fl;} });
+  t.fer=Math.round(t.fer*10)/10; return t;
+}
+function minutesJour(){ return S.activites.reduce((s,a)=>s+a.min,0); }
+
+// ═══ ONBOARDING ══════════════════════════════════
+const NB_ETAPES=6;
+function rendOnboarding(){
+  $nav.classList.remove('visible');
+  document.getElementById('pointsBadge').hidden=true;
+  const e=S.etape;
+  if(e===0) return rendAccueil();
+  if(e===1) return rendConsentements();
+  if(e===2) return rendFormProfil();
+  if(e===3) return rendBaseline();
+  if(e===4) return rendAutoEval();
+  if(e===5) return rendPointDepart();
+}
+function allerEtape(n){ S.etape=n; sauver(); rendOnboarding(); $main.scrollTo(0,0); }
+
+function rendAccueil(){
+  $main.innerHTML=`
+  <div class="centre">
+    <svg class="logo-hero" width="130" height="130" viewBox="-32 -32 64 64" role="img" aria-label="Logo HealthMe">${logoSvg('#155E63','#F2913F')}</svg>
+    <h1>Votre capital santé,<br>un geste à la fois</h1>
+    <p class="muted">HealthMe vous aide à combler vos besoins en nutriments et en mouvement selon votre groupe d'âge — sans jamais être en manque ni en excès.</p>
+    <button class="btn btn-primaire btn-bloc" onclick="allerEtape(1)">Créer mon capital santé</button>
+    <p class="small muted" style="margin-top:1rem">Prototype de test — les données sont simulées et restent sur cet appareil.</p>
+    ${IOS_SAFARI?`<div class="card sable small" style="text-align:left;margin-top:.8rem">📲 <b>Astuce plein écran :</b> dans Safari, touchez <b>Partager</b> puis <b>« Sur l'écran d'accueil »</b>. HealthMe s'ouvrira comme une vraie app, sans barre de navigation.</div>`:''}
+  </div>`;
+}
+
+function rendConsentements(){
+  const c=S.consentements;
+  $main.innerHTML=`${dots(0,NB_ETAPES-1)}
+  <h1>Vos données, vos choix</h1>
+  <p class="muted">HealthMe demande un consentement séparé pour chaque usage. Vous pouvez changer d'avis en tout temps.</p>
+  <div class="card">
+    <div class="check"><input type="checkbox" id="c-profil" ${c.profil?'checked':''}><span><b>Profil santé</b> (âge, sexe, activité) — nécessaire pour calculer vos besoins. <span class="chip chip-attention">Requis</span></span></div>
+    <div class="check"><input type="checkbox" id="c-journal" ${c.journal?'checked':''}><span><b>Journal alimentaire et d'activité</b> — nécessaire pour suivre vos apports. <span class="chip chip-attention">Requis</span></span></div>
+    <div class="check"><input type="checkbox" id="c-photos" ${c.photos?'checked':''}><span><b>Photos de repas</b> — pour retrouver un repas plus vite. Optionnel.</span></div>
+    <div class="check"><input type="checkbox" id="c-social" ${c.social?'checked':''}><span><b>Cellule de motivation</b> (volet social) — Optionnel, à venir.</span></div>
+  </div>
+  <div class="card sable small">👨‍👩‍👧 <b>Moins de 18 ans?</b> Le compte est créé et supervisé par un parent : c'est lui qui consent et qui garde un accès en temps réel.</div>
+  <button class="btn btn-primaire btn-bloc" onclick="validerConsent()">Continuer</button>
+  <button class="btn btn-contour btn-bloc btn-petit" onclick="allerEtape(0)">Retour</button>`;
+}
+function validerConsent(){
+  const p=document.getElementById('c-profil').checked, j=document.getElementById('c-journal').checked;
+  if(!p||!j){ toast('Les deux premiers consentements sont nécessaires au fonctionnement.'); return; }
+  S.consentements={profil:p,journal:j,photos:document.getElementById('c-photos').checked,social:document.getElementById('c-social').checked};
+  allerEtape(2);
+}
+
+let F={sex:'femme',act:'modere',goal:'maintien'};
+function rendFormProfil(){
+  const p=S.profil||{};
+  F={sex:p.sex||'femme',act:p.act||'modere',goal:p.goal||'maintien'};
+  $main.innerHTML=`${dots(1,NB_ETAPES-1)}
+  <h1>Parlez-nous de vous</h1>
+  <label for="f-prenom">Prénom</label>
+  <input type="text" id="f-prenom" value="${esc(p.prenom||'')}" placeholder="Ex. Camille" maxlength="30">
+  <div class="ligne">
+    <div><label for="f-age">Âge (8 à 99 ans)</label><input type="number" id="f-age" min="8" max="99" value="${p.age||''}" placeholder="Ex. 42"></div>
+    <div><label>Sexe</label>
+      <div class="seg" id="seg-sex">
+        <button type="button" data-v="femme" class="${F.sex==='femme'?'on':''}">Femme</button>
+        <button type="button" data-v="homme" class="${F.sex==='homme'?'on':''}">Homme</button>
+      </div></div>
+  </div>
+  <label>Niveau d'activité habituel</label>
+  <div class="seg" id="seg-act">
+    <button type="button" data-v="sedentaire" class="${F.act==='sedentaire'?'on':''}">Sédentaire</button>
+    <button type="button" data-v="leger" class="${F.act==='leger'?'on':''}">Léger</button>
+    <button type="button" data-v="modere" class="${F.act==='modere'?'on':''}">Modéré</button>
+    <button type="button" data-v="actif" class="${F.act==='actif'?'on':''}">Actif</button>
+  </div>
+  <div class="ligne">
+    <div><label for="f-poids">Poids (kg) — optionnel</label><input type="number" id="f-poids" min="20" max="250" value="${p.poids||''}" placeholder="Moyenne utilisée"></div>
+    <div><label for="f-taille">Taille (cm) — optionnel</label><input type="number" id="f-taille" min="100" max="230" value="${p.taille||''}" placeholder="Moyenne utilisée"></div>
+  </div>
+  <label>Objectif</label>
+  <div class="seg" id="seg-goal">
+    <button type="button" data-v="maintien" class="${F.goal==='maintien'?'on':''}">Maintien</button>
+    <button type="button" data-v="perte" class="${F.goal==='perte'?'on':''}">Perte de poids</button>
+    <button type="button" data-v="gain" class="${F.goal==='gain'?'on':''}">Prise de masse</button>
+  </div>
+  <p class="small muted" id="note-mineur" style="margin-top:.5rem"></p>
+  <button class="btn btn-primaire btn-bloc" onclick="validerProfil()">Voir ma référence santé</button>
+  <button class="btn btn-contour btn-bloc btn-petit" onclick="allerEtape(1)">Retour</button>`;
+  ['sex','act','goal'].forEach(k=>{
+    document.getElementById('seg-'+k).addEventListener('click',e=>{
+      const b=e.target.closest('button'); if(!b)return;
+      F[k]=b.dataset.v;
+      b.parentElement.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+      majNoteMineur();
+    });
+  });
+  document.getElementById('f-age').addEventListener('input',majNoteMineur);
+  majNoteMineur();
+}
+function majNoteMineur(){
+  const age=parseInt(document.getElementById('f-age').value,10);
+  const n=document.getElementById('note-mineur');
+  if(age>=8&&age<=17){ n.innerHTML='🌱 Moins de 18 ans : l\'objectif est fixé à <b>Maintien</b> — priorité à la croissance, jamais à la restriction.'; }
+  else n.textContent='';
+}
+function validerProfil(){
+  const age=parseInt(document.getElementById('f-age').value,10);
+  if(!(age>=8&&age<=99)){ toast('Indiquez un âge entre 8 et 99 ans.'); return; }
+  const poids=parseFloat(document.getElementById('f-poids').value)||null;
+  const taille=parseFloat(document.getElementById('f-taille').value)||null;
+  S.profil={prenom:document.getElementById('f-prenom').value.trim()||'Vous', age, sex:F.sex, act:F.act, goal:F.goal, poids, taille, groupe:groupeAge(age)};
+  S.besoins=calcBesoins(age,F.sex,F.act,poids,taille,F.goal);
+  sauver(); allerEtape(3);
+}
+
+function rendBaseline(){
+  const p=S.profil, b=BASELINE[p.groupe];
+  $main.innerHTML=`${dots(2,NB_ETAPES-1)}
+  <h1>Votre référence officielle<br><span style="color:var(--mand)">${b.titre}</span></h1>
+  <p class="muted">Repères tirés des sources officielles (Guide alimentaire canadien 2019, directives de mouvement 24 h SCPE, ANREF, OMS). Ce sont des repères de population — vos besoins personnels sont calculés dans votre tableau de bord.</p>
+  <div class="card">
+    <h3>🏃 Bouger</h3><p class="small">${b.activite}</p>
+    <h3 style="margin-top:.8rem">😴 Dormir</h3><p class="small">${b.sommeil}</p>
+  </div>
+  <div class="card">
+    <h3>🍽️ L'assiette recommandée</h3>
+    <div class="assiette"><div class="a1">½ légumes et fruits</div><div class="a2">¼ grains</div><div class="a3">¼ protéines</div></div>
+    <p class="small">💧 L'eau comme boisson de choix.</p>
+    <p class="small">🥦 <b>Fruits et légumes : ≥ 400 g/jour</b> <span class="equiv">≈ 5 poignées, ou la moitié de l'assiette à chaque repas</span></p>
+    <p class="small">🍗 <b>Protéines : ${b.prot(p.sex,p.age)}</b> <span class="equiv">1 portion ≈ la paume de la main (~75 g)</span></p>
+    <p class="small">🌾 <b>Fibres : ${b.fibres}</b> <span class="equiv">grains entiers ≈ ½ tasse cuits ou 1 tranche de pain</span></p>
+  </div>
+  <div class="card sable"><h3>Pourquoi c'est utile pour vous</h3><p class="small" style="margin:0">${b.benefice}</p></div>
+  ${SOURCES}
+  <button class="btn btn-primaire btn-bloc" onclick="allerEtape(4)">Je m'auto-évalue</button>
+  <button class="btn btn-contour btn-bloc btn-petit" onclick="allerEtape(2)">Retour</button>`;
+}
+
+const QUESTIONS=[
+ {k:'activite', t:g=> g==='8-17'?'Est-ce que tu bouges au moins 60 minutes par jour?':'Atteignez-vous 150 minutes d\'activité par semaine?'},
+ {k:'fl', t:()=> 'Les fruits et légumes remplissent-ils la moitié de votre assiette?'},
+ {k:'prot', t:()=> 'Mangez-vous des aliments protéinés à chaque repas (≈ ¼ de l\'assiette)?'},
+ {k:'sommeil', t:g=> `Dormez-vous les heures recommandées (${BASELINE[g].sommeil})?`}
+];
+const REPONSES=[['oui','Oui, déjà acquis'],['partiel','En partie'],['non','Pas encore']];
+function rendAutoEval(){
+  const g=S.profil.groupe;
+  $main.innerHTML=`${dots(3,NB_ETAPES-1)}
+  <h1>Où en êtes-vous aujourd'hui?</h1>
+  <p class="muted">Il n'y a pas de mauvaise réponse — cela sert seulement à mesurer le chemin à parcourir.</p>
+  ${QUESTIONS.map((q,i)=>`
+  <div class="card">
+    <h3>${q.t(g)}</h3>
+    <div class="seg" data-q="${q.k}">
+      ${REPONSES.map(([v,l])=>`<button type="button" data-v="${v}" class="${S.autoEval[q.k]===v?'on':''}">${l}</button>`).join('')}
+    </div>
+  </div>`).join('')}
+  <button class="btn btn-primaire btn-bloc" onclick="validerAutoEval()">Voir mon point de départ</button>
+  <button class="btn btn-contour btn-bloc btn-petit" onclick="allerEtape(3)">Retour</button>`;
+  $main.querySelectorAll('.seg[data-q]').forEach(seg=>{
+    seg.addEventListener('click',e=>{
+      const b=e.target.closest('button'); if(!b)return;
+      S.autoEval[seg.dataset.q]=b.dataset.v;
+      seg.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    });
+  });
+}
+function validerAutoEval(){
+  if(QUESTIONS.some(q=>!S.autoEval[q.k])){ toast('Répondez aux 4 questions — sans pression!'); return; }
+  sauver(); allerEtape(5);
+}
+
+const LIBELLES_OBJ={activite:'Bouger davantage', fl:'Plus de fruits et légumes', prot:'Des protéines à chaque repas', sommeil:'Un meilleur sommeil'};
+function objectifs(){
+  return QUESTIONS.map(q=>({k:q.k, rep:S.autoEval[q.k]})).filter(o=>o.rep!=='oui')
+    .map(o=>({k:o.k, titre:LIBELLES_OBJ[o.k], prio:o.rep==='non'?'À prioriser':'À consolider'}));
+}
+function rendPointDepart(){
+  const p=S.profil, obj=objectifs();
+  $main.innerHTML=`${dots(4,NB_ETAPES-1)}
+  <h1>Votre point de départ, ${esc(p.prenom)}</h1>
+  ${obj.length===0
+    ? `<div class="card sarcelle"><h3>🌟 Déjà sur la bonne voie!</h3><p class="small" style="margin:0">Vous respectez déjà les grands repères de votre groupe d'âge. HealthMe vous aidera à maintenir le cap.</p></div>`
+    : `<p class="muted">Voici les écarts à combler — ce sont des chemins à parcourir, pas des échecs.</p>` +
+      obj.map(o=>`<div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:.6rem">
+        <b>${o.titre}</b><span class="chip ${o.prio==='À prioriser'?'chip-attention':'chip-ok'}">${o.prio}</span></div>`).join('')}
+  <div class="card">
+    <h3>Vos besoins personnels du jour</h3>
+    <p class="small muted">Calculés selon votre profil (Mifflin-St Jeor × activité, ANREF).</p>
+    <div class="tuiles">
+      <div class="tuile"><div class="gros">${S.besoins.calories}</div><div class="lab">kcal / jour</div></div>
+      <div class="tuile"><div class="gros">${S.besoins.protG} g</div><div class="lab">protéines</div></div>
+      <div class="tuile"><div class="gros">${S.besoins.fibres} g</div><div class="lab">fibres</div></div>
+      <div class="tuile"><div class="gros">${(S.besoins.eauMl/1000).toFixed(1)} L</div><div class="lab">eau ≈ ${Math.round(S.besoins.eauMl/250)} verres</div></div>
+    </div>
+  </div>
+  <button class="btn btn-primaire btn-bloc" onclick="terminerOnboarding()">Commencer mon suivi</button>`;
+}
+function terminerOnboarding(){ S.etape=99; S.points+=20; sauver(); toast('Bienvenue! +20 points de départ ⭐',true); rendApp('tableau'); }
+// ═══ APPLICATION PRINCIPALE ══════════════════════
+let ecranActif='tableau';
+function rendApp(ecran){
+  ecranActif=ecran||ecranActif;
+  $nav.classList.add('visible');
+  document.getElementById('pointsBadge').hidden=false;
+  majPoints();
+  $nav.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.ecran===ecranActif));
+  ({tableau:rendTableau, journal:rendJournal, activite:rendActivite, alertes:rendAlertes, profil:rendProfilEcran})[ecranActif]();
+  $main.scrollTo(0,0);
+}
+$nav.addEventListener('click',e=>{ const b=e.target.closest('button'); if(b) rendApp(b.dataset.ecran); });
+
+function jauge(label,val,max,unite,equiv){
+  const pct=Math.min(100,Math.round(val/max*100));
+  return `<div class="jauge"><div class="tete"><span>${label}</span><span class="val">${val} / ${max} ${unite}${equiv?` <span class="equiv">${equiv}</span>`:''}</span></div>
+  <div class="barre"><i class="${pct>=100?'plein':''}" style="width:${pct}%"></i></div></div>`;
+}
+
+// ── Tableau de bord ──────────────────────────────
+function rendTableau(){
+  const p=S.profil, b=S.besoins, t=totaux(), obj=objectifs();
+  const cible=BASELINE[p.groupe].actCible;
+  const actLbl=cible.type==='jour'?`${minutesJour()} / ${cible.min} min aujourd'hui`:`${minutesJour()} / ${cible.min} min cette semaine`;
+  $main.innerHTML=`
+  <h1>Bonjour, ${esc(p.prenom)} 👋</h1>
+  <p class="muted">Groupe ${BASELINE[p.groupe].titre} · objectif ${b.goalApplied==='maintien'?'maintien':b.goalApplied==='perte'?'perte de poids':'prise de masse'}</p>
+  <div class="card">
+    <h3>Aujourd'hui</h3>
+    ${jauge('Énergie',t.kcal,b.calories,'kcal')}
+    ${jauge('Protéines',t.prot,b.protG,'g','≈ paume = 1 portion')}
+    ${jauge('Fibres',t.fib,b.fibres,'g')}
+    ${jauge('Fruits et légumes',t.fl,b.fl,'g','≈ 5 poignées')}
+    ${jauge('Eau',S.eau*250,b.eauMl,'ml',`${S.eau} verre${S.eau>1?'s':''}`)}
+    ${jauge('Activité physique',minutesJour(),cible.min,'min',cible.type==='jour'?'repère quotidien':'repère hebdo')}
+  </div>
+  ${obj.length?`<h2>Vos objectifs de départ</h2>`+obj.map(o=>`
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.8rem 1rem">
+      <b>${o.titre}</b><span class="chip ${o.prio==='À prioriser'?'chip-attention':'chip-ok'}">${o.prio}</span>
+    </div>`).join(''):''}
+  <h2>À surveiller pour votre groupe d'âge</h2>
+  ${CARENCES[p.groupe].slice(0,2).map(c=>`
+  <div class="alerte"><div class="titre">${c.ico} ${c.n}</div><p>${c.msg}</p></div>`).join('')}
+  <button class="btn btn-contour btn-bloc btn-petit" onclick="rendApp('alertes')">Voir toutes les alertes</button>
+  ${SOURCES}`;
+}
+
+// ── Journal ──────────────────────────────────────
+function rendJournal(){
+  const t=totaux(), b=S.besoins;
+  $main.innerHTML=`
+  <h1>Journal alimentaire</h1>
+  <p class="muted">Choisissez un repas dans la banque, vérifiez la portion, puis confirmez. <b>Astuce :</b> décrivez toujours la portion — « 150 g de patates pilées, avec sel » — pour un suivi fidèle.</p>
+  <div class="card sable" style="display:flex;justify-content:space-between;align-items:center;gap:.6rem">
+    <span><b>💧 Eau :</b> ${S.eau} verre${S.eau>1?'s':''} (${S.eau*250} ml / ${b.eauMl} ml)</span>
+    <button class="btn btn-secondaire btn-petit" onclick="ajouterEau()">+1 verre (250 ml)</button>
+  </div>
+  <label for="recherche">Rechercher un repas</label>
+  <input type="text" id="recherche" placeholder="Ex. soupe, poulet, gruau…" oninput="filtrerBanque(this.value)">
+  <div id="listeBanque" style="margin-top:.7rem"></div>
+  <hr class="sep">
+  <h2>Repas du jour (${S.repas.length})</h2>
+  ${S.repas.length===0?'<p class="muted">Aucun repas consigné pour l\'instant.</p>':
+    S.repas.map((id,i)=>{ const r=BANQUE.find(x=>x.id===id);
+      return `<div class="repas" style="cursor:default"><span class="ico">${r.ico}</span>
+      <span class="inf"><b>${r.n}</b><span>${r.portion}</span></span>
+      <button class="btn btn-contour btn-petit" onclick="retirerRepas(${i})" aria-label="Retirer">✕</button></div>`; }).join('')}
+  <p class="small muted">Total : ${t.kcal} kcal · ${t.prot} g protéines · ${t.fib} g fibres · ${t.fer} mg fer · ${t.ca} mg calcium</p>
+  <p class="small muted">Valeurs approximatives (prototype). La version finale utilisera le Fichier canadien sur les éléments nutritifs (FCEN).</p>`;
+  filtrerBanque('');
+}
+function filtrerBanque(q){
+  const el=document.getElementById('listeBanque'); if(!el) return;
+  const n=q.trim().toLowerCase();
+  const liste=BANQUE.filter(r=>!n||r.n.toLowerCase().includes(n));
+  el.innerHTML=liste.length?liste.map(r=>`
+    <div class="repas" onclick="confirmerRepas(${r.id})" role="button" tabindex="0">
+      <span class="ico">${r.ico}</span>
+      <span class="inf"><b>${r.n}</b><span>${r.portion}</span></span>
+      <span class="kc">${r.kcal} kcal</span>
+    </div>`).join(''):'<p class="muted small">Aucun repas trouvé — la banque grandira avec vos habitudes.</p>';
+}
+function confirmerRepas(id){
+  const r=BANQUE.find(x=>x.id===id);
+  modale(`
+  <h2 style="margin-top:0">${r.ico} ${r.n}</h2>
+  <p><b>Portion proposée :</b> ${r.portion}</p>
+  <div class="card sable small" style="margin:.6rem 0">
+    ${r.kcal} kcal · ${r.prot} g protéines · ${r.fib} g fibres · ${r.fer} mg fer · ${r.ca} mg calcium
+    ${r.fl?` · ${r.fl} g fruits et légumes`:''}
+  </div>
+  <p class="small muted">Est-ce bien ce que vous avez mangé, en cette quantité? Vous pourrez le retirer du journal au besoin.</p>
+  <button class="btn btn-primaire btn-bloc" onclick="ajouterRepas(${r.id})">Oui, je confirme</button>
+  <button class="btn btn-contour btn-bloc btn-petit" onclick="fermerModale()">Annuler</button>`);
+}
+const RENFORCEMENT={'8-17':'Beau travail! Ton corps te dit merci 🌟','18-34':'Bien joué — une bonne habitude de plus aujourd\'hui ⭐','35-64':'Excellent réflexe. Votre capital santé grandit ⭐','65+':'Bravo! Chaque geste compte pour votre vitalité ⭐'};
+function ajouterRepas(id){
+  const avant=ecartsActifs();
+  S.repas.push(id); S.points+=5;
+  const apres=ecartsActifs();
+  const combles=avant.filter(k=>!apres.includes(k));
+  fermerModale();
+  if(combles.length){ S.points+=10; toast(`Écart comblé (${combles.map(k=>NOMS_NUTR[k]).join(', ')}) — ${RENFORCEMENT[S.profil.groupe]} +15 pts`,true); }
+  else toast('Repas consigné. +5 points ⭐',true);
+  sauver(); rendJournal(); majPoints();
+}
+function retirerRepas(i){ S.repas.splice(i,1); sauver(); rendJournal(); }
+function ajouterEau(){ S.eau++; S.points+=1; sauver(); rendJournal(); majPoints(); }
+
+// ── Activité ─────────────────────────────────────
+const ACTIVITES_RAPIDES=[['🚶 Marche',30],['🚴 Vélo',30],['⚽ Sport',60],['🏋️ Renforcement',20],['🧘 Équilibre / yoga',20]];
+function rendActivite(){
+  const p=S.profil, cible=BASELINE[p.groupe].actCible, min=minutesJour();
+  $main.innerHTML=`
+  <h1>Activité physique</h1>
+  <p class="muted">${BASELINE[p.groupe].activite}</p>
+  <div class="card">
+    ${jauge('Minutes accumulées',min,cible.min,'min',cible.type==='jour'?'repère quotidien':'repère hebdomadaire')}
+    ${min>=cible.min?'<p class="small" style="color:var(--sarc);font-weight:700">🎉 Repère atteint — excellent pour votre capital santé!</p>':''}
+  </div>
+  <h2>Ajouter une activité</h2>
+  <div class="seg">
+    ${ACTIVITES_RAPIDES.map(([n,m])=>`<button type="button" onclick="ajouterActivite('${n}',${m})">${n}<br><span class="small muted">${m} min</span></button>`).join('')}
+  </div>
+  <div class="ligne" style="margin-top:.8rem;align-items:flex-end">
+    <div><label for="act-min">Autre durée (minutes)</label><input type="number" id="act-min" min="5" max="300" placeholder="Ex. 45"></div>
+    <button class="btn btn-secondaire" onclick="ajouterActiviteLibre()">Ajouter</button>
+  </div>
+  <h2>Aujourd'hui</h2>
+  ${S.activites.length===0?'<p class="muted">Aucune activité consignée.</p>':
+    S.activites.map((a,i)=>`<div class="repas" style="cursor:default"><span class="inf"><b>${esc(a.n)}</b></span><span class="kc">${a.min} min</span>
+    <button class="btn btn-contour btn-petit" onclick="retirerActivite(${i})" aria-label="Retirer">✕</button></div>`).join('')}
+  <p class="small muted">Prototype : le cumul hebdomadaire sera suivi dans la version complète.</p>`;
+}
+function ajouterActivite(n,m){
+  S.activites.push({n,min:m}); S.points+=10; sauver();
+  toast(`${RENFORCEMENT[S.profil.groupe]} +10 pts`,true); rendActivite(); majPoints();
+}
+function ajouterActiviteLibre(){
+  const m=parseInt(document.getElementById('act-min').value,10);
+  if(!(m>=5&&m<=300)){ toast('Indiquez une durée entre 5 et 300 minutes.'); return; }
+  ajouterActivite('Activité libre',m);
+}
+function retirerActivite(i){ S.activites.splice(i,1); sauver(); rendActivite(); }
+
+// ── Moteur d'alertes ciblées (déterministe) ──────
+const NOMS_NUTR={fer:'fer',calcium:'calcium',prot:'protéines',fib:'fibres',fl:'fruits et légumes'};
+function ecartsActifs(){
+  const t=totaux(), b=S.besoins, seuil=.6, res=[];
+  if(S.repas.length===0) return res; // pas d'alarme sur journal vide
+  if(t.fer < b.fer*seuil) res.push('fer');
+  if(t.ca < b.calcium*seuil) res.push('calcium');
+  if(t.prot < b.protG*seuil) res.push('prot');
+  if(t.fib < b.fibres*seuil) res.push('fib');
+  if(t.fl < b.fl*seuil) res.push('fl');
+  return res;
+}
+function recoChiffree(k,ecart){
+  return RECO_ALIMENTS[k].map(o=>{
+    const nb=Math.max(1,Math.ceil(ecart/o.t));
+    return `<b>${o.a}</b> ${o.q?`— ${o.q}`:''} (≈ ${o.t} ${o.u}${nb>1?` ; ~${nb} portions pour combler l'écart`:''})`;
+  }).join('<br>');
+}
+function rendAlertes(){
+  const p=S.profil, t=totaux(), b=S.besoins, ecarts=ecartsActifs();
+  const valeurs={fer:[t.fer,b.fer,'mg'],calcium:[t.ca,b.calcium,'mg'],prot:[t.prot,b.protG,'g'],fib:[t.fib,b.fibres,'g'],fl:[t.fl,b.fl,'g']};
+  const cible=BASELINE[p.groupe].actCible, minAct=minutesJour();
+  $main.innerHTML=`
+  <h1>Alertes santé</h1>
+  <p class="muted">Des repères de prévention, jamais un diagnostic. Une carence possible est un <b>écart à combler</b> — pas un échec.</p>
+  <h2>Selon votre journée</h2>
+  ${S.repas.length===0?'<div class="card"><p class="small" style="margin:0">Consignez d\'abord un repas au journal : l\'analyse de vos apports s\'affichera ici.</p></div>':
+    ecarts.length===0 && minAct>=cible.min?'<div class="card sarcelle"><h3>🌟 Tout est au vert</h3><p class="small" style="margin:0">Vos apports suivis et votre activité sont en bonne voie aujourd\'hui.</p></div>':
+    ecarts.map(k=>{ const [v,max,u]=valeurs[k]; const ecart=Math.round((max-v)*10)/10;
+      return `<div class="alerte cible">
+      <div class="titre">📌 ${NOMS_NUTR[k].charAt(0).toUpperCase()+NOMS_NUTR[k].slice(1)} — écart à combler</div>
+      <p>Votre apport en ${NOMS_NUTR[k]} est sous le repère aujourd'hui : <b>${v} / ${max} ${u}</b> (écart ≈ ${ecart} ${u}).</p>
+      <div class="reco"><b>Pour combler l'écart :</b><br>${recoChiffree(k,ecart)}</div>
+      <p class="small muted" style="margin:.4rem 0 0">Consignez l'un de ces aliments au journal → l'écart se recalcule automatiquement.</p>
+      </div>`; }).join('')}
+  ${S.repas.length>0 && minAct<cible.min?`<div class="alerte">
+    <div class="titre">🏃 Activité physique</div>
+    <p>Il vous reste <b>${cible.min-minAct} min</b> pour atteindre le repère ${cible.type==='jour'?'du jour':'de la semaine'} (${cible.min} min). Une marche rapide compte!</p>
+  </div>`:''}
+  <h2>Sensibilisation — ${BASELINE[p.groupe].titre}</h2>
+  ${CARENCES[p.groupe].map(c=>`<div class="alerte">
+    <div class="titre">${c.ico} ${c.n}</div><p>${c.msg}</p>
+    <p class="small"><a href="https://www.canada.ca/fr/sante-canada/services/aliments-nutrition.html" target="_blank" rel="noopener">Pour en savoir plus →</a></p>
+  </div>`).join('')}
+  <p class="small muted">Source : Santé Canada / Santé Québec. HealthMe sensibilise et renvoie à la source — il n'est pas une source d'information médicale.</p>`;
+}
+
+// ── Profil ───────────────────────────────────────
+function rendProfilEcran(){
+  const p=S.profil, b=S.besoins, m=b.mesures;
+  const ACT_L={sedentaire:'Sédentaire',leger:'Légèrement actif',modere:'Modérément actif',actif:'Très actif',tres_actif:'Extrêmement actif'};
+  $main.innerHTML=`
+  <h1>Profil</h1>
+  <div class="card">
+    <h3>${esc(p.prenom)}</h3>
+    <p class="small">${p.age} ans · ${p.sex==='homme'?'Homme':'Femme'} · ${ACT_L[p.act]} · ${m.weight} kg · ${m.height} cm ${!p.poids?'<span class="muted">(moyennes utilisées)</span>':''}</p>
+    <p class="small">Groupe d'âge : <b>${BASELINE[p.groupe].titre}</b> · Objectif : <b>${b.goalApplied}</b>${b.ped?' <span class="muted">(fixé — croissance d\'abord)</span>':''}</p>
+  </div>
+  <div class="card">
+    <h3>Vos besoins quotidiens</h3>
+    <div class="tuiles">
+      <div class="tuile"><div class="gros">${b.calories}</div><div class="lab">kcal</div></div>
+      <div class="tuile"><div class="gros">${b.protG} g</div><div class="lab">protéines</div></div>
+      <div class="tuile"><div class="gros">${b.fibres} g</div><div class="lab">fibres</div></div>
+      <div class="tuile"><div class="gros">${b.fer} mg</div><div class="lab">fer</div></div>
+      <div class="tuile"><div class="gros">${b.calcium} mg</div><div class="lab">calcium</div></div>
+      <div class="tuile"><div class="gros">${(b.eauMl/1000).toFixed(1)} L</div><div class="lab">eau ≈ ${Math.round(b.eauMl/250)} verres</div></div>
+    </div>
+    <p class="small muted">Mifflin-St Jeor × niveau d'activité · ANREF (Santé Canada). Calcul entièrement déterministe.</p>
+  </div>
+  <div class="card">
+    <h3>Consentements</h3>
+    <p class="small">Profil santé : ${S.consentements.profil?'✅':'—'} · Journal : ${S.consentements.journal?'✅':'—'} · Photos : ${S.consentements.photos?'✅':'Non'} · Social : ${S.consentements.social?'✅':'Non'}</p>
+    <p class="small muted">Dans la version complète : modification, export et suppression du compte en tout temps (Loi 25).</p>
+  </div>
+  <button class="btn btn-contour btn-bloc" onclick="modifierProfil()">Modifier mon profil</button>
+  <button class="btn btn-contour btn-bloc btn-petit" onclick="reinitialiser()" style="color:var(--gris);border-color:#D8CCBA">Réinitialiser le prototype</button>`;
+}
+function modifierProfil(){ S.etape=2; sauver(); rendOnboarding(); }
+function reinitialiser(){
+  modale(`<h2 style="margin-top:0">Tout effacer?</h2>
+  <p class="small">Le profil, le journal et les points de ce prototype seront supprimés de cet appareil.</p>
+  <button class="btn btn-primaire btn-bloc" onclick="localStorage.removeItem(CLE);location.reload()">Oui, réinitialiser</button>
+  <button class="btn btn-contour btn-bloc btn-petit" onclick="fermerModale()">Annuler</button>`);
+}
+
+// ═══ DÉMARRAGE ══════════════════════════════════
+charger();
+if(S.etape===99 && S.profil && S.besoins) rendApp('tableau');
+else { S.etape=Math.min(S.etape,5); rendOnboarding(); }
+</script>
+</body>
+</html>
